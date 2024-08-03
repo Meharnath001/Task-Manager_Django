@@ -1,0 +1,59 @@
+Step 1 --> install python and Django      pip install django
+
+step 2 -->mkdir my_django_project    --- location for project
+          cd my_django_project
+
+step 3 -->django-admin startproject myproject      ---cmd for startup project
+
+after it creates some files
+                    Summary
+manage.py: Command-line tool for project management.
+myproject/ (settings directory):
+__init__.py: Marks the directory as a Python package.
+settings.py: Configuration settings for the project.
+urls.py: URL routing and mappings.
+wsgi.py: WSGI entry point for deploying the project.
+asgi.py: ASGI entry point for handling asynchronous requests.
+
+step 4 -->Navigate to Your Project Directory ---- cd myproject
+
+step 5 --> Start the Django development server to check that everything is working correctly:    python manage.py runserver
+
+step 6 -->Create a Django App   ---- python manage.py startapp myapp
+
+step 7 -->Register Your App: Open myproject/settings.py and add 'myapp' to the INSTALLED_APPS list:  
+            INSTALLED_APPS = [
+    # ...
+    'myapp',
+]
+
+step 8 --> Create Models: Open myapp/models.py and define your data models. 
+           based on your req
+
+step 9 --> Generate migration files for your new model:   python manage.py makemigrations
+
+why migration?
+As your application evolves, your data models may change. Migrations provide a systematic way to update your database schema to reflect changes in your Django models, such as adding or removing fields, changing field types, or creating new models.
+
+step 10 --> apply migration -- python manage.py migrate
+
+Apply the migrations to create the 'Table name or model name' table in your database
+
+step 11 --> 
+
+
+
+    def delete_task(self):
+        task_id = int(input('Enter the ID of the task to delete: '))
+        task = self.get_task_by_id(task_id)
+        if task:
+            task.delete()
+            # Update local tasks list
+            self.tasks = list(Task.objects.all())
+            print('Task deleted successfully!')
+            self.resequence_ids()
+ 
+
+
+
+
